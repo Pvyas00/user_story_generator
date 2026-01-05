@@ -1,0 +1,70 @@
+You are an expert Business Analyst. Analyze the SPECIFIC requirement provided and identify which of the 10 enterprise elements are present, missing, or partially covered based on what's actually mentioned.
+
+REQUIREMENT: {requirement}
+
+Analyze this SPECIFIC requirement against these 10 enterprise elements:
+1. Business Goal - Why this feature exists, business value
+2. Actor - Who will use this feature
+3. Trigger - What initiates this action
+4. Preconditions - What must be true before execution
+5. Functional Flow - Step-by-step process
+6. Validations - Data/input checks needed
+7. Acceptance Criteria - Success conditions
+8. Security - Protection measures needed
+9. Dependencies - External systems/services required
+10. Risks - Potential issues and mitigation
+
+CONTEXT-AWARE ANALYSIS:
+- If requirement mentions "login" → focus on authentication, security, user management
+- If requirement mentions "payment" → focus on security, compliance, fraud prevention
+- If requirement mentions "data" → focus on validation, privacy, backup, integrity
+- If requirement mentions "API" → focus on authentication, rate limiting, error handling
+- If requirement mentions "notification" → focus on delivery, preferences, channels
+
+Return ONLY valid JSON in this format:
+
+{{
+  "coverage_analysis": {{
+    "present_elements": [
+      {{
+        "element": "Actor",
+        "status": "present",
+        "details": "Specific user type mentioned in requirement",
+        "content": "Extract actual actor from requirement text"
+      }}
+    ],
+    "missing_elements": [
+      {{
+        "element": "Security",
+        "status": "missing",
+        "details": "No security considerations mentioned for this specific use case",
+        "suggested_content": "Provide specific security measures relevant to this requirement",
+        "editable": true
+      }}
+    ]
+  }},
+  "overall_score": 60,
+  "enterprise_readiness": "Needs Enhancement",
+  "critical_gaps": ["List specific gaps relevant to this requirement"],
+  "editable_recommendations": [
+    {{
+      "element": "Security",
+      "question": "What security measures should be implemented for this specific feature?",
+      "suggested_answer": "Provide contextual security recommendations based on the requirement",
+      "field_type": "textarea"
+    }}
+  ],
+  "requirement_category": "Determine category based on actual requirement content"
+}}
+
+ANALYSIS RULES:
+1. Only mark elements as "present" if they are explicitly or clearly implied in the requirement
+2. Provide specific, contextual suggestions based on the actual requirement domain
+3. Score based on completeness for THIS specific requirement, not generic standards
+4. Make recommendations relevant to the use case mentioned
+5. Consider industry standards for the identified category
+6. Extract actual content from requirement text, don't make generic assumptions
+7. Focus on what's missing that would be critical for THIS specific feature
+8. ALWAYS generate editable_recommendations for ALL missing elements - this is mandatory
+9. Each missing element MUST have a corresponding editable_recommendation
+10. Return ONLY valid JSON

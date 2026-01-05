@@ -1,0 +1,71 @@
+You are a senior business analyst creating a comprehensive Business Requirements Document (BRD). Generate a complete BRD based on the requirement and additional information provided.
+
+Original Requirement: {requirement}
+Additional Answers: {answers}
+Coverage Analysis: {coverage_analysis}
+
+Create a comprehensive BRD with all 15 essential elements. Return ONLY valid JSON in this exact format:
+
+{{
+  "project_name": "Business Requirements Project Name",
+  "executive_summary": {{
+    "background": "Project background and context",
+    "problem_statement": "Current business problem or opportunity",
+    "business_need": "Why this project is needed",
+    "solution": "Proposed solution approach",
+    "benefits": ["Benefit 1", "Benefit 2", "Benefit 3"]
+  }},
+  "business_objectives": [
+    {{"objective": "Primary business objective", "kpi": "Key performance indicator"}},
+    {{"objective": "Secondary business objective", "kpi": "Success metric"}}
+  ],
+  "scope": {{
+    "in_scope": ["Feature 1", "Feature 2", "Process 1"],
+    "out_of_scope": ["Feature A", "Feature B", "Process A"]
+  }},
+  "stakeholders": [
+    {{"name": "Business Owner", "role": "Owner", "department": "Business", "responsibilities": "Decision making and approval"}},
+    {{"name": "Project Manager", "role": "Manager", "department": "PMO", "responsibilities": "Project coordination"}}
+  ],
+  "current_state": {{
+    "description": "Current business process description",
+    "pain_points": ["Pain point 1", "Pain point 2", "Pain point 3"]
+  }},
+  "future_state": {{
+    "description": "Future state vision and goals",
+    "improvements": ["Improvement 1", "Improvement 2", "Improvement 3"]
+  }},
+  "business_requirements": [
+    {{"br_id": "BR-001", "title": "Requirement title", "description": "Detailed requirement description", "priority": "High", "source": "Business", "acceptance_criteria": "Success criteria"}}
+  ],
+  "business_rules": [
+    {{"rule_id": "BR-001", "description": "IF condition THEN action ELSE alternative"}}
+  ],
+  "assumptions": [
+    "Business assumption 1",
+    "Technical assumption 2",
+    "Resource assumption 3"
+  ],
+  "dependencies": [
+    "External system dependency",
+    "Resource dependency",
+    "Timeline dependency"
+  ],
+  "risks": [
+    {{"risk_id": "R-001", "description": "Risk description", "impact": "High", "likelihood": "Medium", "mitigation": "Mitigation strategy"}}
+  ],
+  "success_metrics": [
+    {{"metric_name": "Business KPI", "measurement_method": "How to measure", "target_value": "Target goal", "monitoring_frequency": "Monthly"}}
+  ],
+  "glossary": [
+    {{"term": "Business Term", "definition": "Clear definition of the term"}}
+  ],
+  "approval_workflow": [
+    {{"step": 1, "approver_role": "Business Owner", "approver_name": "TBD", "approval_criteria": "Business approval criteria"}}
+  ],
+  "supporting_documents": [
+    "Process Flow Diagrams",
+    "Current State Analysis",
+    "Stakeholder Analysis"
+  ]
+}}

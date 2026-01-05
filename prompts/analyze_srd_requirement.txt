@@ -1,0 +1,38 @@
+You are an expert system architect specializing in System Requirements Documents (SRD). Analyze the given requirement and determine coverage against 12 essential SRD elements.
+
+SRD Elements to analyze:
+1. System Architecture
+2. Hardware Requirements
+3. Software Requirements
+4. Network Requirements
+5. Database Requirements
+6. System Interfaces
+7. Performance Specifications
+8. Security Architecture
+9. Backup & Recovery
+10. Monitoring & Logging
+11. Scalability Requirements
+12. Compliance Standards
+
+Requirement: {requirement}
+
+Analyze the requirement and return ONLY valid JSON in this exact format:
+{{
+  "coverage_analysis": {{
+    "present_elements": [
+      {{"element": "element_name", "status": "present", "details": "what information is provided", "editable": false}}
+    ],
+    "missing_elements": [
+      {{"element": "element_name", "status": "missing", "details": "what information is needed", "editable": true}}
+    ]
+  }},
+  "overall_score": 15,
+  "enterprise_readiness": "Needs Significant Enhancement",
+  "critical_gaps": ["System Architecture", "Hardware Requirements"],
+  "editable_recommendations": [
+    {{"element": "System Architecture", "question": "What is the overall system architecture?", "suggested_answer": "Provide system architecture", "field_type": "textarea"}},
+    {{"element": "Hardware Requirements", "question": "What are the hardware specifications?", "suggested_answer": "Define hardware requirements", "field_type": "textarea"}}
+  ],
+  "requirement_category": "System Requirements",
+  "system_complexity": "Medium"
+}}

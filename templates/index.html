@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Document Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='section-images.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="corporate-header">
+                <div class="company-branding">
+                    <img src="{{ url_for('static', filename='images/anand_rathi_logo.png') }}" alt="Anand Rathi" class="company-logo">
+                    <div class="header-text">
+                        <h1>ANAND RATHI INFORMATION TECHNOLOGY</h1>
+                        <p>Enterprise Document Generation Platform</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Step 1: Requirement Input -->
+            <section id="requirement-section" class="step-section active">
+                <h2>Step 1: Enter Your Requirement</h2>
+                
+                <!-- Corporate Tile Layout -->
+                <div class="document-tiles-container">
+                    <h3 class="section-title">Select Document Type</h3>
+                    <div class="tile-grid">
+                        <div class="document-tile" data-type="user-story">
+                            <div class="tile-icon">📝</div>
+                            <h3 class="tile-title">USER STORIES</h3>
+                            <p class="tile-description">Enterprise-grade user stories with comprehensive coverage</p>
+                            <div class="tile-features">
+                                <span class="feature">✓ 10 elements</span>
+                                <span class="duration">⏱️ 2-3 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="document-tile" data-type="brd">
+                            <div class="tile-icon">📋</div>
+                            <h3 class="tile-title">BUSINESS REQUIREMENTS</h3>
+                            <p class="tile-description">Comprehensive business documentation with detailed analysis</p>
+                            <div class="tile-features">
+                                <span class="feature">✓ 15 sections</span>
+                                <span class="duration">⏱️ 5-7 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="document-tile" data-type="frd">
+                            <div class="tile-icon">⚙️</div>
+                            <h3 class="tile-title">FUNCTIONAL REQUIREMENTS</h3>
+                            <p class="tile-description">Technical specifications and functional requirements</p>
+                            <div class="tile-features">
+                                <span class="feature">✓ 14 components</span>
+                                <span class="duration">⏱️ 8-10 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="document-tile" data-type="srd">
+                            <div class="tile-icon">🏗️</div>
+                            <h3 class="tile-title">SYSTEM ARCHITECTURE</h3>
+                            <p class="tile-description">Infrastructure requirements and system design</p>
+                            <div class="tile-features">
+                                <span class="feature">✓ 12 elements</span>
+                                <span class="duration">⏱️ 10-12 min</span>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                    <input type="hidden" id="selected-document-type" value="user-story">
+                </div>
+                
+                <div class="input-group">
+                    <label for="requirement-input">Describe your requirement (1-3 lines):</label>
+                    <textarea 
+                        id="requirement-input" 
+                        placeholder="Example: Users should be able to reset their password when they forget it"
+                        rows="3"
+                    ></textarea>
+                </div>
+                <div class="button-group">
+                    <button id="analyze-btn" class="btn btn-primary">Analyze Requirement</button>
+                </div>
+            </section>
+
+            <!-- Step 2: Coverage Analysis -->
+            <section id="coverage-section" class="step-section">
+                <h2>Step 2: Enterprise Coverage Analysis</h2>
+                <div id="coverage-container">
+
+                    <div class="elements-grid">
+                        <div class="present-elements">
+                            <h3>✅ Covered Elements</h3>
+                            <div id="present-list">Loading...</div>
+                        </div>
+                        <div class="missing-elements">
+                            <h3>❌ Missing Elements</h3>
+                            <div id="missing-list">Loading...</div>
+                        </div>
+                    </div>
+                    <div class="recommendations-section">
+                        <h3>📝 Complete Missing Information</h3>
+                        <div id="recommendations-container">Loading recommendations...</div>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button id="generate-btn" class="btn btn-primary" style="display: none;">Generate Document</button>
+                    <button id="back-to-requirement" class="btn btn-secondary">Back to Requirement</button>
+                </div>
+            </section>
+
+            <!-- Step 3: Q&A Section (if needed) -->
+            <section id="qa-section" class="step-section">
+                <h2>Step 3: Additional Questions</h2>
+                <div id="questions-container"></div>
+                <div class="button-group">
+                    <button id="generate-from-qa" class="btn btn-primary" style="display: none;">Generate User Story</button>
+                    <button id="back-to-coverage" class="btn btn-secondary">Back to Coverage</button>
+                </div>
+            </section>
+
+            <!-- Step 4: Generated Document -->
+            <section id="story-section" class="step-section">
+                <h2 id="generated-document-title">Step 4: Generated Document</h2>
+                <div id="story-container"></div>
+                <div class="export-options">
+                    <h3>📄 Export Options</h3>
+                </div>
+                <div class="button-group">
+                    <button id="export-word" class="btn btn-export">📄 Export Word</button>
+                    <button id="export-pdf" class="btn btn-export">📋 Export PDF</button>
+                    <button id="back-to-qa" class="btn btn-secondary">Back to Q&A</button>
+                    <button id="start-over" class="btn btn-secondary">Start Over</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <img src="{{ url_for('static', filename='images/anand_rathi_logo.png') }}" alt="Anand Rathi" class="footer-logo">
+                <p>&copy; 2026 Anand Rathi Information Technology. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay">
+            <img src="{{ url_for('static', filename='images/anand_rathi_logo.png') }}" alt="Anand Rathi" class="loading-logo">
+            <div class="spinner"></div>
+            <p id="loading-text">Processing...</p>
+        </div>
+
+        <!-- Error Modal -->
+        <div id="error-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Error</h3>
+                <p id="error-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

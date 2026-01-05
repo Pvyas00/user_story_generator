@@ -1,0 +1,74 @@
+You are a senior technical analyst creating a comprehensive Functional Requirements Document (FRD). Generate a complete FRD based on the requirement and additional information provided.
+
+Original Requirement: {requirement}
+Additional Answers: {answers}
+Coverage Analysis: {coverage_analysis}
+
+Create a comprehensive FRD with all 14 essential elements. Return ONLY valid JSON in this exact format:
+
+{{
+  "system_overview": {{
+    "architecture": "System architecture description",
+    "components": ["Component 1", "Component 2", "Component 3"],
+    "technology_stack": ["Technology 1", "Technology 2"],
+    "design_principles": ["Principle 1", "Principle 2"]
+  }},
+  "functional_requirements": [
+    {{"req_id": "FR-001", "title": "Functional Requirement 1", "description": "Detailed requirement description", "priority": "High", "acceptance_criteria": "Success criteria"}}
+  ],
+  "data_requirements": {{
+    "data_models": ["Model 1", "Model 2"],
+    "storage_requirements": "Database storage specifications",
+    "data_flow": "Data flow description",
+    "data_integrity": "Data integrity requirements"
+  }},
+  "interface_requirements": {{
+    "ui_specifications": "User interface specifications",
+    "api_specifications": "API interface specifications",
+    "integration_interfaces": "External integration interfaces"
+  }},
+  "integration_requirements": [
+    {{"system": "External System 1", "method": "REST API", "data_format": "JSON", "frequency": "Real-time"}}
+  ],
+  "performance_requirements": {{
+    "response_time": "< 2 seconds",
+    "throughput": "1000 requests/minute",
+    "scalability": "Auto-scaling capabilities",
+    "availability": "99.9% uptime"
+  }},
+  "security_requirements": [
+    "Authentication and authorization",
+    "Data encryption requirements",
+    "Access control specifications"
+  ],
+  "validation_rules": [
+    {{"field": "Field 1", "rule": "Validation rule", "error_message": "Error message"}}
+  ],
+  "error_handling": [
+    {{"error_type": "System Error", "handling_strategy": "Error handling strategy", "user_message": "User-friendly message", "logging": "Logging requirements"}}
+  ],
+  "reporting_requirements": [
+    {{"report_name": "Report 1", "description": "Report description", "frequency": "Daily", "format": "Dashboard"}}
+  ],
+  "testing_requirements": {{
+    "unit_testing": "Unit testing specifications",
+    "integration_testing": "Integration testing requirements",
+    "performance_testing": "Performance testing criteria",
+    "security_testing": "Security testing requirements"
+  }},
+  "deployment_requirements": {{
+    "environment": "Production environment specifications",
+    "deployment_strategy": "Deployment approach",
+    "rollback_plan": "Rollback strategy",
+    "infrastructure": "Infrastructure requirements"
+  }},
+  "maintenance_requirements": {{
+    "monitoring": "System monitoring requirements",
+    "backup_strategy": "Backup procedures",
+    "update_procedures": "Update processes",
+    "support_procedures": "Support procedures"
+  }},
+  "technical_specifications": [
+    {{"component": "Component 1", "specification": "Technical specifications"}}
+  ]
+}}

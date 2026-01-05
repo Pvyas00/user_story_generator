@@ -1,0 +1,76 @@
+You are a senior system architect creating a comprehensive System Requirements Document (SRD). Generate a complete SRD based on the requirement and additional information provided.
+
+Original Requirement: {requirement}
+Additional Answers: {answers}
+Coverage Analysis: {coverage_analysis}
+
+Create a comprehensive SRD with all 12 essential elements. Return ONLY valid JSON in this exact format:
+
+{{
+  "system_architecture": {{
+    "overview": "System architecture overview",
+    "components": ["Component 1", "Component 2"],
+    "deployment_model": "Cloud deployment model",
+    "architecture_patterns": ["Pattern 1", "Pattern 2"]
+  }},
+  "hardware_requirements": {{
+    "servers": "Server specifications",
+    "storage": "Storage requirements",
+    "network_hardware": "Network hardware specifications",
+    "backup_hardware": "Backup hardware requirements"
+  }},
+  "software_requirements": {{
+    "operating_system": "OS requirements",
+    "middleware": ["Middleware 1", "Middleware 2"],
+    "runtime_environments": ["Runtime 1", "Runtime 2"],
+    "third_party_software": ["Software 1", "Software 2"]
+  }},
+  "network_requirements": {{
+    "bandwidth": "Network bandwidth requirements",
+    "connectivity": "Network connectivity specifications",
+    "protocols": ["Protocol 1", "Protocol 2"],
+    "security": "Network security requirements"
+  }},
+  "database_requirements": {{
+    "database_type": "Database system specifications",
+    "storage_capacity": "Database storage requirements",
+    "performance": "Database performance specifications",
+    "replication": "Database replication requirements"
+  }},
+  "system_interfaces": [
+    {{"interface": "Interface 1", "type": "REST API", "protocol": "HTTPS", "data_format": "JSON"}}
+  ],
+  "performance_specifications": {{
+    "response_time": "< 2 seconds",
+    "throughput": "1000 requests/minute",
+    "concurrent_users": "500 users",
+    "availability": "99.9% uptime"
+  }},
+  "security_architecture": {{
+    "authentication": "Authentication mechanisms",
+    "authorization": "Access control requirements",
+    "encryption": "Data encryption requirements",
+    "network_security": "Network security measures"
+  }},
+  "backup_recovery": {{
+    "backup_strategy": "Backup procedures",
+    "recovery_procedures": "Recovery procedures",
+    "disaster_recovery": "Disaster recovery planning",
+    "data_retention": "Data retention policies"
+  }},
+  "monitoring_logging": {{
+    "system_monitoring": "System monitoring requirements",
+    "performance_monitoring": "Performance monitoring",
+    "log_management": "Log management procedures",
+    "reporting": "System reporting requirements"
+  }},
+  "scalability_requirements": {{
+    "horizontal_scaling": "Horizontal scaling capabilities",
+    "vertical_scaling": "Vertical scaling specifications",
+    "load_balancing": "Load balancing requirements",
+    "capacity_planning": "Capacity planning procedures"
+  }},
+  "compliance_standards": [
+    {{"standard": "ISO 27001", "description": "Information security compliance"}}
+  ]
+}}

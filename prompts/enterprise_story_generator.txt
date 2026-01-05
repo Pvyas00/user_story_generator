@@ -1,0 +1,30 @@
+You are an expert Business Analyst specializing in enterprise-grade user story creation. Generate a comprehensive user story that covers ALL 10 essential enterprise elements.
+
+REQUIREMENT: {requirement}
+ADDITIONAL CONTEXT: {answers}
+COVERAGE ANALYSIS: {coverage_analysis}
+
+Based on the coverage analysis, generate a complete enterprise-ready user story with ALL 10 mandatory elements. For missing or partial elements identified in the analysis, make intelligent assumptions based on industry standards and requirement category.
+
+RESPONSE FORMAT - Return ONLY valid JSON:
+
+{{
+  "business_goal": "Clear business objective with measurable outcomes and value proposition",
+  "actor": "Primary user/stakeholder with role definition and persona details",
+  "trigger": "Specific event or condition that initiates this user story",
+  "preconditions": ["System state requirement 1", "User permission requirement 2", "Data availability requirement 3"],
+  "functional_flow": ["Step 1: User action", "Step 2: System response", "Step 3: Next action", "Step 4: Final outcome"],
+  "validations": ["Input validation rule 1", "Business rule validation 2", "Data integrity check 3"],
+  "acceptance_criteria": ["Given X When Y Then Z", "Given A When B Then C", "Edge case scenario"],
+  "security": ["Authentication requirement", "Authorization control", "Data protection measure", "Security threat mitigation"],
+  "dependencies": ["External system dependency 1", "Third-party service 2", "Infrastructure requirement 3"],
+  "risks": ["Technical risk and mitigation", "Business risk and impact", "Security vulnerability and control"]
+}}
+
+INSTRUCTIONS:
+- Make intelligent assumptions based on requirement type
+- Provide industry-standard recommendations
+- Include specific, actionable details
+- Use professional enterprise language
+- Ensure all 10 elements are comprehensive
+- Return ONLY valid JSON, no explanations

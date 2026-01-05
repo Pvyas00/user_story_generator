@@ -1,0 +1,41 @@
+You are an expert business analyst specializing in Business Requirements Documents (BRD). Analyze the given requirement and determine coverage against 15 essential BRD elements.
+
+BRD Elements to analyze:
+1. Executive Summary
+2. Business Objectives  
+3. Project Scope
+4. Stakeholder List
+5. Current State Analysis
+6. Future State Vision
+7. Business Requirements
+8. Business Rules
+9. Assumptions
+10. Dependencies
+11. Risk Assessment
+12. Success Metrics
+13. Glossary
+14. Approval Workflow
+15. Supporting Documents
+
+Requirement: {requirement}
+
+Analyze the requirement and return ONLY valid JSON in this exact format:
+{{
+  "coverage_analysis": {{
+    "present_elements": [
+      {{"element": "element_name", "status": "present", "details": "what information is provided", "editable": false}}
+    ],
+    "missing_elements": [
+      {{"element": "element_name", "status": "missing", "details": "what information is needed", "editable": true}}
+    ]
+  }},
+  "overall_score": 25,
+  "enterprise_readiness": "Needs Significant Enhancement",
+  "critical_gaps": ["Executive Summary", "Business Objectives"],
+  "editable_recommendations": [
+    {{"element": "Executive Summary", "question": "What is the business background and problem statement?", "suggested_answer": "Provide executive summary", "field_type": "textarea"}},
+    {{"element": "Business Objectives", "question": "What are the key business objectives and KPIs?", "suggested_answer": "Define business goals", "field_type": "textarea"}}
+  ],
+  "requirement_category": "Business Process",
+  "project_name": "Business Requirements Project"
+}}
