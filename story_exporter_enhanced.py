@@ -350,6 +350,9 @@ class EnhancedStoryExporter:
             row.cells[1].paragraphs[0].runs[0].font.name = 'Calibri'
             row.cells[1].paragraphs[0].runs[0].font.size = Pt(11)
         
+        # Add section images for user story overview
+        self._add_section_images(doc, 'user-story', section_images)
+        
         # Add horizontal line
         self._add_section_separator(doc)
         
@@ -397,6 +400,10 @@ class EnhancedStoryExporter:
             nfr_para = doc.add_paragraph(f'• {item}')
             self._apply_body_style(nfr_para)
             nfr_para.paragraph_format.left_indent = Inches(0.5)
+        
+        # Add section images
+        self._add_section_images(doc, 'non-functional-requirements', section_images)
+        self._add_section_separator(doc)
     
     def _add_section_separator(self, doc):
         """Add horizontal line separator"""
@@ -1480,6 +1487,8 @@ class EnhancedStoryExporter:
             # Add section images
             self._add_section_images(doc, 'integration-requirements', section_images)
             self._add_section_separator(doc)
+        # Performance Requirements
+        if frd_data.get('performance_requirements'):
             perf_heading = doc.add_heading('PERFORMANCE REQUIREMENTS', level=1)
             self._apply_heading_style(perf_heading, 1)
             
@@ -1949,6 +1958,10 @@ class EnhancedStoryExporter:
                 hw_para.add_run(str(value))
                 self._apply_body_style(hw_para)
             
+            # Add section images
+            self._add_section_images(doc, 'hardware-requirements', section_images)
+            self._add_section_separator(doc)
+            
         # Software Requirements
         if srd_data.get('software_requirements'):
             sw_heading = doc.add_heading('SOFTWARE REQUIREMENTS', level=1)
@@ -2235,20 +2248,33 @@ class EnhancedStoryExporter:
         print(f"DEBUG: _add_section_images called with section_id: {section_id}")
         print(f"DEBUG: section_images keys: {list(section_images.keys()) if section_images else 'None'}")
         
-        if not section_images or section_id not in section_images:
-            print(f"DEBUG: No images found for section {section_id}")
+        if not section_images:
+            print(f"DEBUG: No section_images provided")
+            return
+            
+        # Try both hyphen and underscore versions of section_id
+        section_key = None
+        if section_id in section_images:
+            section_key = section_id
+        elif section_id.replace('-', '_') in section_images:
+            section_key = section_id.replace('-', '_')
+        elif section_id.replace('_', '-') in section_images:
+            section_key = section_id.replace('_', '-')
+            
+        if not section_key:
+            print(f"DEBUG: No images found for section {section_id} (tried variations)")
             return
         
-        images = section_images[section_id]
+        images = section_images[section_key]
         if not images:
-            print(f"DEBUG: Empty images list for section {section_id}")
+            print(f"DEBUG: Empty images list for section {section_key}")
             return
         
-        print(f"DEBUG: Found {len(images)} images for section {section_id}")
+        print(f"DEBUG: Found {len(images)} images for section {section_key}")
         
         for i, image_data in enumerate(images):
             try:
-                print(f"DEBUG: Processing image {i+1} for section {section_id}")
+                print(f"DEBUG: Processing image {i+1} for section {section_key}")
                 
                 # Decode base64 image
                 base64_string = image_data.get('data', '')
@@ -2263,10 +2289,13 @@ class EnhancedStoryExporter:
                 # Add image to document
                 image_para = doc.add_paragraph()
                 run = image_para.add_run()
-                run.add_picture(image_stream, width=Inches(4))
+                
+                # Reset stream position before adding to document
+                image_stream.seek(0)
+                run.add_picture(image_stream, width=Inches(3))
                 image_para.alignment = WD_ALIGN_PARAGRAPH.CENTER
                 
-                print(f"DEBUG: Successfully added image {i+1} to section {section_id}")
+                print(f"DEBUG: Successfully added image {i+1} to section {section_key}")
                 
                 # Add caption if available
                 caption = image_data.get('caption', '')
@@ -2284,5 +2313,5 @@ class EnhancedStoryExporter:
                 
             except Exception as e:
                 # Skip problematic images
-                print(f"ERROR: Failed to add image {i+1} to section {section_id}: {str(e)}")
+                print(f"ERROR: Failed to add image {i+1} to section {section_key}: {str(e)}")
                 continue
